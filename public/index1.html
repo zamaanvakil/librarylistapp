@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>Profile App</title>
+
+</head>
+<body>
+	<div class="container" ng-controller="AppCtrl">
+		<h1>Profile App</h1>
+		<table class="table">
+			<thead>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Number</th>
+				<th>Action</th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="data.name"></td>
+					<td><input class="form-control" ng-model="data.email"></td>
+					<td><input class="form-control" ng-model="data.number"></td>
+					<td><button class="btn btn-primary" ng-click="addData()">Add to DB</button></td>
+					<td><button class="btn btn-info" ng-click="update()">Update</button></td>
+					<td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+				</tr>
+				<tr ng-repeat="data in list">
+					<td>{{data.name}}</td>
+					<td>{{data.email}}</td>
+					<td>{{data.number}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(data._id)">Remove</button>
+					<td><button class="btn btn-warning" ng-click="edit(data._id)">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
